@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Платёжная форма</title>
+  <link rel="stylesheet" href="payment-form.css" />
+</head>
+<body>
+  <main class="payment-container">
+    <h1>Оплата</h1>
+
+    <form id="payment-form" novalidate>
+      <!-- Персональные данные -->
+      <fieldset>
+        <legend>Персональные данные</legend>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">Имя</label>
+            <input type="text" id="first-name" name="firstName"
+                   placeholder="Иван" autocomplete="given-name" required />
+            <span class="error-message" data-for="first-name"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="last-name">Фамилия</label>
+            <input type="text" id="last-name" name="lastName"
+                   placeholder="Иванов" autocomplete="family-name" required />
+            <span class="error-message" data-for="last-name"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email"
+                   placeholder="example@mail.ru" autocomplete="email" required />
+            <span class="error-message" data-for="email"></span>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Данные карты -->
+      <fieldset>
+        <legend>Данные карты</legend>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="card-number">Номер карты</label>
+            <input type="text" id="card-number" name="cardNumber" inputmode="numeric"
+                   placeholder="0000 0000 0000 0000" maxlength="19"
+                   autocomplete="cc-number" required />
+            <span class="card-brand" id="card-brand"></span>
+            <span class="error-message" data-for="card-number"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="expiry-date">Срок действия</label>
+            <input type="text" id="expiry-date" name="expiryDate" inputmode="numeric"
+                   placeholder="ММ/ГГ" maxlength="5"
+                   autocomplete="cc-exp" required />
+            <span class="error-message" data-for="expiry-date"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="cvv">CCV</label>
+            <input type="password" id="cvv" name="cvv" inputmode="numeric"
+                   placeholder="•••" maxlength="4"
+                   autocomplete="cc-csc" required />
+            <span class="error-message" data-for="cvv"></span>
+          </div>
+        </div>
+      </fieldset>
+
+      <button type="submit" id="submit-btn" class="submit-btn">Оплатить</button>
+
+      <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <script src="payment-form.js"></script>
+</body>
+</html>
